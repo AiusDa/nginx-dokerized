@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./logs:/var/log/nginx
+    command: /bin/sh -c "nginx -g 'daemon off;'"
